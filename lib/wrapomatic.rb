@@ -1,5 +1,10 @@
-require "wrapomatic/version"
+require 'wrapomatic/version'
+require 'wrapomatic/wrapper'
 
 module Wrapomatic
-  # Your code goes here...
+  def self.wrap(text, options = {})
+    options[:indents] ||= 0
+    options[:columns] ||= 80
+    Wrapper.new(text, options[:indents], options[:columns]).wrapped
+  end
 end
