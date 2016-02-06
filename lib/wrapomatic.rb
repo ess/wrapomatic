@@ -1,4 +1,5 @@
 require 'wrapomatic/version'
+require 'wrapomatic/line'
 require 'wrapomatic/wrapper'
 
 module Wrapomatic

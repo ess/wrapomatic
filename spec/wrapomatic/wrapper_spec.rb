@@ -33,6 +33,15 @@ module Wrapomatic
           expect(line.length > wrapper.columns).to eql(false)
         end
       end
+
+      context 'when given text that contains newlines' do
+        let(:lines_before) {['line 1', 'line 2', 'line 3']}
+        let(:text) {lines_before.join("\n")}
+
+        it 'has at least the same number of lines as the input' do
+          expect(lines.length >= lines_before.length).to eql(true)
+        end
+      end
     end
 
     describe '#wrapped' do
