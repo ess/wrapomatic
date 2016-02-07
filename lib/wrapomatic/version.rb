@@ -1,3 +1,4 @@
 module Wrapomatic
-  VERSION = "0.1.1"
+  # The current Wrapomatic version
+  VERSION = "0.2.0"
 end
