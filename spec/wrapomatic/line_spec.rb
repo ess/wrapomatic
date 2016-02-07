@@ -65,8 +65,9 @@ module Wrapomatic
 
         it 'still breaks properly with extremely long lines' do
           original = 'firstline........................................................................secondline'
+          line = described_class.new(original, indents, columns)
 
-          wrapped = described_class.new(original, indents, columns).wrapped
+          wrapped = line.wrapped
 
           expect(wrapped).to eql(
             [
