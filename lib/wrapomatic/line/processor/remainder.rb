@@ -10,7 +10,7 @@ module Wrapomatic
       class Remainder < Base
         private
         def processed
-          @processed ||= text.gsub(/^#{primary}/, '').lstrip
+          @processed ||= text.gsub(/^#{Regexp.escape(primary)}/, '').lstrip
         end
 
         def primary
