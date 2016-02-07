@@ -1,8 +1,6 @@
 # Wrapomatic
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wrapomatic`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Wrapomatic is a naive text line wrapper that also supports indentation for the wrapped text.
 
 ## Installation
 
@@ -22,9 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'wrapomatic'
+
+text = <<-EOT
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+And THAT was a lot of text on one line!
+EOT
+
+Wrapomatic.wrap(text, indents: 1, columns: 40)
+
+# => "  Lorem ipsum dolor sit amet,\n  consectetur adipiscing elit, sed do\n  eiusmod tempor incididunt ut labore et\n  dolore magna aliqua. Ut enim ad minim\n  veniam, quis nostrud exercitation\n  ullamco laboris nisi ut aliquip ex ea\n  commodo consequat. Duis aute irure\n  dolor in reprehenderit in voluptate\n  velit esse cillum dolore eu fugiat\n  nulla pariatur. Excepteur sint\n  occaecat cupidatat non proident, sunt\n  in culpa qui officia deserunt mollit\n  anim id est laborum.\n  \n  And THAT was a lot of text on one\n  line!"
+```
 
 ## Development
+
+Branches and releases for this project are managed by [git-flow](https://github.com/nvie/gitflow).
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
 
@@ -33,7 +45,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/wrapomatic/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
+2. Create your feature branch off of develop (`git checkout develop ; git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
