@@ -13,6 +13,7 @@ module Wrapomatic
   # @!attribute [r] original
   #   @return [String] the original text
   class Line
+    # An indentation in Wrapomatic is two spaces
     INDENTATION = '  '
 
     attr_reader :original, :indents, :columns

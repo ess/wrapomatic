@@ -3,6 +3,9 @@ require 'wrapomatic/line/processor/base'
 module Wrapomatic
   class Line
     module Processor
+
+      # A line processor that extracts the primary line, which is all parts of
+      # the line before the column cutoff, inclusive.
       class Primary < Base
         private
         def processed

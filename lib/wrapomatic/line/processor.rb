@@ -3,22 +3,29 @@ require 'wrapomatic/line/processor/remainder'
 
 module Wrapomatic
   class Line
+
+    # A deep and dark module that really shouldn't be used directly
+    #
+    # @api private
     module Processor
-      def self.primary(text, columns)
-        Primary.new(text, columns).content
-      end
 
-      def self.remainder(text, columns)
-        Remainder.new(text, columns).content
-      end
-
+      # Process a line
+      #
+      # @param [Line] a Line object to process
+      #
+      # @return [Array<String>] the processed line, broken into individually
+      #   wrapped lines
       def self.process(line)
         columns = line.columns
         indents = line.indents
         text = line.indented
 
         [Primary.new(text, columns).content] +
-          line.class.new(remainder(text, columns), indents, columns).wrapped
+          line.class.new(
+            Remainder.new(text, columns).content,
+            indents,
+            columns
+          ).wrapped
       end
     end
   end
